@@ -1,0 +1,31 @@
+We would like you to kindly re review our phase 1 code.
+
+Response to the feedback bullet points sent to this email "usf3md@gmail.com"
+
+1. Implementation:
+*)) We created an ORM interface but didn't use it (its code in the ORM.java file but it's commented), and used concrete instaPay database directly.
+    We acknowledge our mistake but we can we get points for creating the interface.
+
+
+*)) We had a registeration problem which is when a user enters his username it prints an error and doesn't work. This was caused by a single line that was added as we thought it didn't cause problems.
+
+    To explain further, we use two scanner instances one in App.java and the other in OTP.java. The thing is both scanners use a static input stream (System.in) and when closing a scanner it closes the input stream.
+
+    Thus, after the user enters the otp the scanner in OTP.java closes. Sequentially makes the scanner in the App.java unable to get the username which causes an error. This scanner.close() problem was a last minute change so we couldn't retest. We restored the code into its previous state on github. Kindly retest the registeration process for assurance.
+
+Github: https://github.com/Usf3md/SW-2--Assignment-1.git
+
+
+2. Diagram Not visible:
+*)) We attached the diagram in this repo with better quality for readability.
+
+
+3. Classes DNE:
+TransferWallet, Account, BillProvider & InstaPayDatabase Classes aren't in class diagram
+
+(The classes mentioned are available in the class diagram with different naming due to last minuite changes.  
+Naming Map:
+
+TransferWallet -> NormalAccountTransferManager 
+Account -> UserAccount 
+BillProvidor -> (This is the package name. We didn’t create BillProvider class in both class diagram and implementation)) 
